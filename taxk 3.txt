@@ -1,0 +1,50 @@
+//question no 1
+function compareObjects(obj1, obj2) {
+  const keys1 = Object.keys(obj1).sort();
+  const keys2 = Object.keys(obj2).sort();
+
+  if (keys1.length !== keys2.length) {
+      return false;
+  }
+
+  for (let i = 0; i < keys1.length; i++) {
+      const key1 = keys1[i];
+      const key2 = keys2[i];
+      if (key1 !== key2 || obj1[key1] !== obj2[key2]) {
+          return false;
+      }
+  }
+
+  return true;
+}
+
+const obj1 = { name: "person 1", age: 5 };
+const obj2 = { age: 5, name: "person 1" };
+
+console.log(compareObjects(obj1, obj2)); // Output: true
+
+
+
+
+
+//question no 2 and 3
+
+
+
+let xhr = new XMLHttpRequest();
+console.log(xhr);
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+xhr.send();
+xhr.onload = function () {
+  const data = JSON.parse(xhr.response);
+  console.log(data)
+  for (let i; i<data.length;i++){
+    console.log(data[i].flags.console)
+    console.log(data[i].names)
+    console.log(data[i].regions)
+  }
+ 
+};
+const dummyJson = {
+  name: "flags",
+};
